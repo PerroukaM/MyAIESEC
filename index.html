@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Unipi LC Planner</title>
+<meta name="description" content="Shared calendar and team agendas for AIESEC in University of Piraeus.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<section class="auth wrap" id="auth">
+  <div class="auth-card">
+    <div class="brand"><small>Unipi LC</small><h1>Planner</h1></div>
+    <p id="auth-msg">Loading…</p>
+    <button class="btn primary" id="sign-in" type="button" hidden>Sign in with your @aiesec.gr account</button>
+    <button class="btn" id="sign-out-auth" type="button" hidden>Sign out</button>
+    <p class="err" id="auth-err" hidden></p>
+  </div>
+</section>
+
+<div id="app" hidden>
+  <header class="bar">
+    <div class="wrap">
+      <div class="brand"><small>Unipi LC</small><h1>Planner</h1></div>
+      <nav class="tabs" role="tablist" aria-label="Sections">
+        <button class="tab" role="tab" data-tab="calendar" type="button">Calendar</button>
+        <button class="tab" role="tab" data-tab="agendas" type="button">Agendas</button>
+        <button class="tab" role="tab" data-tab="teams" type="button">Teams</button>
+      </nav>
+      <div class="right">
+        <label class="whoami" id="whoami" hidden>I am <select id="me-select" aria-label="Which member are you?"></select></label>
+        <div class="account"><span class="email" id="account-email"></span><button class="btn ghost" id="sign-out" type="button">Sign out</button></div>
+      </div>
+    </div>
+  </header>
+  <main class="wrap" id="main"></main>
+</div>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

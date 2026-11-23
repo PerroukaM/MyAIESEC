@@ -1,0 +1,33 @@
+rules_version = '2';
+
+// Only signed-in, verified @aiesec.gr accounts can read or write anything.
+// If you change the domain, change it in js/config.js too.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isLC() {
+      return request.auth != null
+        && request.auth.token.email_verified == true
+        && request.auth.token.email.lower().matches('.*@aiesec[.]gr$');
+    }
+
+    match /teams/{id}   { allow read, write: if isLC(); }
+    match /members/{id} { allow read, write: if isLC(); }
+    match /events/{id}  { allow read, write: if isLC(); }
+    match /tasks/{id}   { allow read, write: if isLC(); }
+
+    // Comments are signed with the author's real account:
+    // you can only post as yourself and only edit your own.
+    // Anyone in the LC can delete (needed when a task is deleted).
+    match /comments/{id} {
+      allow read: if isLC();
+      allow create: if isLC() && request.resource.data.byEmail == request.auth.token.email.lower();
+      allow update: if isLC() && resource.data.byEmail == request.auth.token.email.lower()
+                              && request.resource.data.byEmail == resource.data.byEmail;
+      allow delete: if isLC();
+    }
+
+    // Everything else is closed.
+    match /{document=**} { allow read, write: if false; }
+  }
+}
