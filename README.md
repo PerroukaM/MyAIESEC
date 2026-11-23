@@ -17,7 +17,7 @@ You need a Google account to own the Firebase project. Use a shared LC account i
 
 ### 1. Create the Firebase project
 
-1. Go to <https://console.firebase.google.com> and click **Create a project**. Name it e.g. `unipi-lc-planner`. Google Analytics isn't needed.
+1. Go to <https://console.firebase.google.com> and click **Create a project**. Name it e.g. `aiesec-planner`. Google Analytics isn't needed.
 2. **Build → Authentication → Get started → Sign-in method → Google → Enable**. Choose a support email and save.
 3. **Build → Firestore Database → Create database**. Pick the `eur3 (europe-west)` location and start in **production mode**.
 4. In Firestore, open the **Rules** tab, replace everything with the contents of [`firestore.rules`](firestore.rules) and click **Publish**.
