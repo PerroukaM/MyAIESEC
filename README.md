@@ -2,6 +2,8 @@
 
 Shared calendar and team agendas for AIESEC in University of Piraeus.
 
+**Live site: https://perroukam.github.io/MyAIESEC/** (sign in with an `@aiesec.gr` Google account)
+
 - **Calendar**: month view of every team's events, colour-coded, with each team toggleable. Task deadlines can be shown too.
 - **Agendas**: one card per member with their tasks: checkbox, deadline date and time, notes, comment thread. Tasks can have several members.
 - **Teams**: teams, members, roles, and the AIESEC email each member signs in with.
